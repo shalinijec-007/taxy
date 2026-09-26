@@ -1,5 +1,6 @@
 package com.taxy.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,6 +14,9 @@ public class KidProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(unique = true, nullable = false)
+    private String username;
 
     private String name;
 
@@ -60,6 +64,14 @@ public class KidProfile {
 
     public void setLevel(Integer level) {
         this.level = level;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
     
     public KidProfile() {
