@@ -49,14 +49,15 @@ public class KidProfileController {
         );
     }
     
- // Add XP earned by a kid
+    // Add XP earned by a kid
     @PutMapping("/{id}/xp")
     public ResponseEntity<KidProfile> addXp(
             @PathVariable Long id,
+            @RequestParam Long lessonId,
             @RequestParam Integer earnedXp) {
 
         KidProfile updatedProfile =
-                kidProfileService.addXp(id, earnedXp);
+        		kidProfileService.addXp(id, lessonId, earnedXp);
 
         return ResponseEntity.ok(updatedProfile);
     }

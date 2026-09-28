@@ -11,13 +11,17 @@ import com.taxy.exception.KidProfileNotFoundException;
 import com.taxy.exception.UsernameAlreadyExistsException;
 import com.taxy.repository.KidProfileRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class KidProfileService {
 
     private final KidProfileRepository kidProfileRepository;
+    private final KidLessonProgressService progressService;
 
-    public KidProfileService(KidProfileRepository kidProfileRepository) {
+    public KidProfileService(KidProfileRepository kidProfileRepository,KidLessonProgressService progressService) {
         this.kidProfileRepository = kidProfileRepository;
+        this.progressService = progressService;
     }
 
     public KidProfileResponse createProfile(KidProfileRequest request) {
@@ -71,8 +75,17 @@ public class KidProfileService {
                 );
     }
     
- // Add earned XP to a kid profile
-    public KidProfile addXp(Long id, Integer earnedXp) {
+    @Transactional
+    // Add earned XP to a kid profile
+    public KidProfile addXp(
+            Long id,
+            Long lessonId,
+            Integer earnedXp) {
+    	
+    	// Do not award XP twice for the same lesson
+        if (progressService.hasCompletedLesson(id, lessonId)) {
+            return getProfileById(id);
+        }
 
         // Find the kid in the database
         KidProfile profile = getProfileById(id);
@@ -82,7 +95,12 @@ public class KidProfileService {
             profile.getTotalXp() + earnedXp
         );
 
-        // Save the updated profile back to PostgreSQL
-        return kidProfileRepository.save(profile);
+        KidProfile updatedProfile =
+                kidProfileRepository.save(profile);
+
+        // Remember that this lesson is completed
+        progressService.markLessonCompleted(id, lessonId);
+
+        return updatedProfile;
     }
 }

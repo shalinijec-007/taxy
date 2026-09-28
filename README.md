@@ -2,6 +2,8 @@
 
 Taxy is a full-stack educational application designed to make taxes and basic money concepts easy and fun for kids.
 
+![Taxy Architecture](screenshots/taxy-architecture.png)
+
 Instead of teaching taxes using complicated financial terminology, Taxy explains concepts using simple, age-appropriate examples and interactive learning activities.
 
 ## 🚀 Current Features

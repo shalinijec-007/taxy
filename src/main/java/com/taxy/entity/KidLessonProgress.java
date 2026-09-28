@@ -5,9 +5,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "kid_lesson_progress")
+@Table(
+	    name = "kid_lesson_progress",
+	    uniqueConstraints = @UniqueConstraint(
+	        columnNames = {"kidId", "lessonId"}
+	    )
+	)
 public class KidLessonProgress {
 
     @Id
