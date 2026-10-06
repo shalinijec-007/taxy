@@ -14,8 +14,10 @@ public class CorsConfig implements WebMvcConfigurer {
             // Apply CORS configuration to all backend APIs
             .addMapping("/api/**")
 
-            // Allow our React development server
-            .allowedOrigins("http://localhost:5173")
+            .allowedOrigins(
+            	    "http://localhost:5173",  // React
+            	    "http://localhost:4200"   // Angular
+            	)
 
             // HTTP methods React is allowed to call
             .allowedMethods(
