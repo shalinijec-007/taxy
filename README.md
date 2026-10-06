@@ -4,6 +4,10 @@ Taxy is a full-stack educational application designed to make taxes and basic mo
 
 ![Taxy Architecture](screenshots/taxy-architecture.png)
 
+version v1
+
+![Taxy System Architecture](screenshots/taxy-architecture-v1.png)
+
 Instead of teaching taxes using complicated financial terminology, Taxy explains concepts using simple, age-appropriate examples and interactive learning activities.
 
 ## 🚀 Current Features
