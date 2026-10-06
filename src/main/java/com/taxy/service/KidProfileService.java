@@ -9,7 +9,7 @@ import com.taxy.dto.KidProfileResponse;
 import com.taxy.entity.KidProfile;
 import com.taxy.exception.KidProfileNotFoundException;
 import com.taxy.exception.UsernameAlreadyExistsException;
-import com.taxy.repository.KidProfileRepository;
+import com.taxy.repository.jpa.KidProfileRepository;
 
 import jakarta.transaction.Transactional;
 

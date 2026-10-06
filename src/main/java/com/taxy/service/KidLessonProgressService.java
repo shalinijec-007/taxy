@@ -3,7 +3,7 @@ package com.taxy.service;
 import org.springframework.stereotype.Service;
 
 import com.taxy.entity.KidLessonProgress;
-import com.taxy.repository.KidLessonProgressRepository;
+import com.taxy.repository.jpa.KidLessonProgressRepository;
 
 @Service
 public class KidLessonProgressService {

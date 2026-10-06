@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.taxy.entity.TaxLesson;
-import com.taxy.repository.TaxLessonRepository;
+import com.taxy.repository.jpa.TaxLessonRepository;
 
 @Service
 public class TaxLessonService {

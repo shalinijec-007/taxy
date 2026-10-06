@@ -1,4 +1,4 @@
-package com.taxy.repository;
+package com.taxy.repository.jpa;
 
 import java.util.List;
 

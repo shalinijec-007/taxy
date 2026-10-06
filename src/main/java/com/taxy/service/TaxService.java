@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.taxy.dto.TaxHistoryResponse;
 import com.taxy.dto.TaxResponse;
 import com.taxy.entity.TaxActivity;
-import com.taxy.repository.TaxActivityRepository;
+import com.taxy.repository.jpa.TaxActivityRepository;
 
 @Service
 public class TaxService {
